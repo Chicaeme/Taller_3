@@ -3,36 +3,39 @@
 #2. Imprima los números primos entre 0 y número*100
 #El programa debe garantizar que el usuario ingrese un numero positivo mayor a 0
 
-def imprimir_impares(limite):
-    for i in range(1, limite + 1, 2):
-        print(i)
-
-if __name__ == "__main__":
-    limite = int(input("Ingrese el límite superior: "))
-    print("Los números impares hasta", limite, "son:")
-    imprimir_impares(limite)
-    
-
-def es_primo(num):
-    if num <= 1:
+def es_primo(numero):
+    if numero <= 1:
         return False
-    elif num <= 3:
-        return True
-    elif num % 2 == 0 or num % 3 == 0:
-        return False
-    i = 5
-    while i * i <= num:
-        if num % i == 0 or num % (i + 2) == 0:
+    for i in range(2, int(numero**0.5) + 1):
+        if numero % i == 0:
             return False
-        i += 6
     return True
 
-def imprimir_primos(limite):
-    for i in range(2, limite + 1):
+def imprimir_impares(numero):
+    print("Números impares entre -{} y {}:".format(numero, numero))
+    for i in range(-numero, numero + 1):
+        if i % 2 != 0:
+            print(i, end=" ")
+
+def imprimir_primos(numero):
+    limite_superior = numero * 100
+    print("\nNúmeros primos entre 0 y {}:".format(limite_superior))
+    for i in range(limite_superior + 1):
         if es_primo(i):
-            print(i)
+            print(i, end=" ")
+
+def main():
+    while True:
+        try:
+            numero = int(input("Ingrese un número positivo mayor a 0: "))
+            if numero <= 0:
+                print("Error: Debe ingresar un número positivo mayor a 0.")
+            else:
+                imprimir_impares(numero)
+                imprimir_primos(numero)
+                break
+        except ValueError:
+            print("Error: Ingrese un número válido.")
 
 if __name__ == "__main__":
-    limite = int(input("Ingrese el límite superior: "))
-    print("Los números primos hasta", limite, "son:")
-    imprimir_primos(limite)
+    main()

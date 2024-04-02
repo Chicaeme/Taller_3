@@ -113,4 +113,5 @@ for x in range(-10, 10):
 
 #funcion recursiva es una funcion que se llaman asi misma
 #sentencia de control de excepciones, try y except
-#
+#20, 50 10%
+#40, 50, 0 15%
