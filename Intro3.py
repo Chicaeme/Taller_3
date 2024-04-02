@@ -106,3 +106,11 @@ for x in range(10):
     
 for x in range(-10, 10):
     print(x) #de -10 a 9
+    
+    
+#PROMPT =pregunta-instrucción que se ingrsa a LLM, se caracteriza por expresar claramente lo que se necesita.
+#refinar iterativamente 
+
+#funcion recursiva es una funcion que se llaman asi misma
+#sentencia de control de excepciones, try y except
+#
